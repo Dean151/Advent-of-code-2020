@@ -24,6 +24,6 @@ Some special attention will be addressed regarding performances, I'll try to sol
 
 | Day    | Computing time* | Part 1     | Part 2     |
 |--------|-----------------|------------|------------|
-| **1**  |                 |            |            |
+| **1**  | 0,01s           | 800139     | 59885340   |
 
 \* : Best elapsed time of the complete solution using my MacBook Pro 13in mid 2013 in "Release" mode
