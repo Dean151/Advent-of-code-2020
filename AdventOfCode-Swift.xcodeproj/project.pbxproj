@@ -52,6 +52,9 @@
 		710D9373238541B90050BD59 /* AdventOfCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCode.swift; sourceTree = "<group>"; };
 		71F4D8A0238FDAC500E27D74 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		71F4D8A1238FDACB00E27D74 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		E956EB7D25779AD900A6AB9E /* Vector3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector3D.swift; sourceTree = "<group>"; };
+		E956EB7E25779AD900A6AB9E /* Vector2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector2D.swift; sourceTree = "<group>"; };
+		E956EB7F25779AD900A6AB9E /* Maths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maths.swift; sourceTree = "<group>"; };
 		E981328923849CBA0004E844 /* input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input.txt; sourceTree = "<group>"; };
 		E981328A23849CBA0004E844 /* Day01.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day01.swift; sourceTree = "<group>"; };
 		E981328C23849CC40004E844 /* Day02.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day02.swift; sourceTree = "<group>"; };
@@ -117,6 +120,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E956EB7C25779AD900A6AB9E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E956EB7D25779AD900A6AB9E /* Vector3D.swift */,
+				E956EB7E25779AD900A6AB9E /* Vector2D.swift */,
+				E956EB7F25779AD900A6AB9E /* Maths.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		E9813269238499B00004E844 /* Days */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +408,7 @@
 		E9F3CF2B23849691005B8B13 /* AdventOfCode-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				E956EB7C25779AD900A6AB9E /* Shared */,
 				E9813269238499B00004E844 /* Days */,
 				710D9373238541B90050BD59 /* AdventOfCode.swift */,
 				E9F3CF2C23849691005B8B13 /* main.swift */,
