@@ -27,11 +27,7 @@ struct Day01: Day {
         print("Solution for day 1-2 is \(a * b * c)")
     }
 
-    static func integers(for input: String) -> [Int] {
-        input.components(separatedBy: .newlines).compactMap { Int($0) }
-    }
-
-    static func findTwo(_ number: Int, in numbers: [Int]) -> (Int, Int)? {
+    private static func findTwo(_ number: Int, in numbers: [Int]) -> (Int, Int)? {
         var toTest = numbers
         while let first = toTest.popLast() {
             let second = number - first
@@ -42,7 +38,7 @@ struct Day01: Day {
         return nil
     }
 
-    static func findThree(_ number: Int, in numbers: [Int]) -> (Int, Int, Int)? {
+    private static func findThree(_ number: Int, in numbers: [Int]) -> (Int, Int, Int)? {
         var toTest = numbers
         while let first = toTest.popLast() {
             let secondAndThird = number - first
