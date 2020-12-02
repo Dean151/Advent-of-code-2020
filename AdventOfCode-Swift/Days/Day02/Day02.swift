@@ -1,7 +1,41 @@
 
 import Foundation
 
-struct Day02: Day {
+enum Day02: Day {
+    static func test() throws {
+        let expectedPart1 = [
+            "1-3 a: abcde" : true,
+            "1-3 b: cdefg" : false,
+            "2-9 c: ccccccccc" : true
+        ]
+        for (input, expected) in expectedPart1 {
+            let result = try PasswordAndPolicy.from(input).isValid(mode: .occurences)
+            precondition(result == expected)
+        }
+
+        let expectedPart2 = [
+            "1-3 a: abcde" : true,
+            "1-3 b: cdefg" : false,
+            "2-9 c: ccccccccc" : false
+        ]
+        for (input, expected) in expectedPart2 {
+            let result = try PasswordAndPolicy.from(input).isValid(mode: .position)
+            precondition(result == expected)
+        }
+    }
+
+    static func run(input: String) throws {
+        let passwordsAndPolicies = try input.components(separatedBy: .newlines).map { try PasswordAndPolicy.from($0) }
+
+        // Day 2-1
+        let nbValidByOccurences = passwordsAndPolicies.count { $0.isValid(mode: .occurences) }
+        print("Solution for Day 2-1 is \(nbValidByOccurences)")
+
+        // Day 2-2
+        let nbValidByPosition = passwordsAndPolicies.count { $0.isValid(mode: .position) }
+        print("Solution for Day 2-2 is \(nbValidByPosition)")
+    }
+
     private struct PasswordAndPolicy {
         struct Policy {
             enum Mode {
@@ -28,16 +62,16 @@ struct Day02: Day {
                 }
             }
 
-            static func from(_ string: String) -> Policy? {
+            static func from(_ string: String) throws -> Policy {
                 let components = string.components(separatedBy: CharacterSet.alphanumerics.inverted)
                 guard components.count == 3 else {
-                    return nil
+                    throw Errors.unparsable
                 }
                 guard let first = Int(components[0]), let second = Int(components[1]) else {
-                    return nil
+                    throw Errors.unparsable
                 }
                 guard components[2].count == 1, let char = components[2].first else {
-                    return nil
+                    throw Errors.unparsable
                 }
                 return Policy(letter: char, first: first, second: second)
             }
@@ -50,38 +84,13 @@ struct Day02: Day {
             policy.test(password, mode: mode)
         }
 
-        static func from(_ string: String) -> PasswordAndPolicy? {
+        static func from(_ string: String) throws -> PasswordAndPolicy {
             let components = string.components(separatedBy: ": ")
             guard components.count == 2 else {
-                return nil
+                throw Errors.unparsable
             }
-            guard let policy = Policy.from(components[0]) else {
-                return nil
-            }
+            let policy = try Policy.from(components[0])
             return PasswordAndPolicy(password: components[1], policy: policy)
         }
-    }
-
-    static func run(input: String) {
-        // Day 2-1
-        #if DEBUG
-        assert(PasswordAndPolicy.from("1-3 a: abcde")?.isValid(mode: .occurences) == true)
-        assert(PasswordAndPolicy.from("1-3 b: cdefg")?.isValid(mode: .occurences) == false)
-        assert(PasswordAndPolicy.from("2-9 c: ccccccccc")?.isValid(mode: .occurences) == true)
-        #endif
-
-        let passwordsAndPolicies = input.components(separatedBy: .newlines).compactMap { PasswordAndPolicy.from($0) }
-        let nbValidByOccurences = passwordsAndPolicies.count { $0.isValid(mode: .occurences) }
-        print("Solution for Day 2-1 is \(nbValidByOccurences)")
-
-        // Day 2-2
-        #if DEBUG
-        assert(PasswordAndPolicy.from("1-3 a: abcde")?.isValid(mode: .position) == true)
-        assert(PasswordAndPolicy.from("1-3 b: cdefg")?.isValid(mode: .position) == false)
-        assert(PasswordAndPolicy.from("2-9 c: ccccccccc")?.isValid(mode: .position) == false)
-        #endif
-
-        let nbValidByPosition = passwordsAndPolicies.count { $0.isValid(mode: .position) }
-        print("Solution for Day 2-2 is \(nbValidByPosition)")
     }
 }
