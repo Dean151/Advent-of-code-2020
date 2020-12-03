@@ -143,8 +143,8 @@ enum Errors: Error {
 enum Input {
     static let projectUrl = URL(fileURLWithPath: #file).deletingLastPathComponent()
 
-    static func getFromFile(_ day: String) throws -> String {
-        let url = projectUrl.appendingPathComponent("Days/\(day)/input.txt")
+    static func getFromFile(_ day: String, file: String = "input") throws -> String {
+        let url = projectUrl.appendingPathComponent("Days/\(day)/\(file).txt")
         let inputData = try Data(contentsOf: url)
         guard let input = String(data: inputData, encoding: .utf8) else {
             throw Errors.noInput

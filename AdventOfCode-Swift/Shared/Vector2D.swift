@@ -36,6 +36,16 @@ extension Vector2D: CustomStringConvertible {
 }
 
 extension Vector2D {
+    func moved(by other: Vector2D) -> Vector2D {
+        return Vector2D(x: x + other.x, y: y + other.y)
+    }
+
+    mutating func move(by other: Vector2D) {
+        self = self.moved(by: other)
+    }
+}
+
+extension Vector2D {
     enum Turn {
         case left, right
     }
@@ -62,13 +72,13 @@ extension Vector2D {
     func moved(_ direction: Direction) -> Vector2D {
         switch direction {
         case .up:
-            return Vector2D(x: x, y: y - 1)
+            return moved(by: Vector2D(x: 0, y: -1))
         case .left:
-            return Vector2D(x: x - 1, y: y)
+            return moved(by: Vector2D(x: -1, y: 0))
         case .right:
-            return Vector2D(x: x + 1, y: y)
+            return moved(by: Vector2D(x: 1, y: 0))
         case .down:
-            return Vector2D(x: x, y: y + 1)
+            return moved(by: Vector2D(x: 0, y: 1))
         }
     }
     mutating func move(_ direction: Direction) {
