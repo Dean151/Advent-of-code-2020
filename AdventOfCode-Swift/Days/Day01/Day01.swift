@@ -3,9 +3,10 @@ import Foundation
 
 enum Day01: Day {
     static func test() throws {
-        let numbers = integers(for: "1721\n979\n366\n299\n675\n1456")
-        let (a, b) = try findTwo(2020, in: integers(for: "1721\n979\n366\n299\n675\n1456"))
-        let (c, d, e) = try findThree(2020, in: integers(for: "1721\n979\n366\n299\n675\n1456"))
+        let input = try Input.getFromFile("\(Self.self)", file: "test")
+        let numbers = integers(for: input)
+        let (a, b) = try findTwo(2020, in: integers(for: input))
+        let (c, d, e) = try findThree(2020, in: integers(for: input))
         precondition(numbers.count == 6)
         precondition(a == 299 && b == 1721)
         precondition(c == 675 && d == 366 && e == 979)
