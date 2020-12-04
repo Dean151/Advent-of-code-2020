@@ -84,13 +84,13 @@ enum AdventOfCode {
 protocol Day {
     /// Required to run the day problem
     static func run(input: String) throws
+
+    /// Required to propose tests
+    static func test() throws
 }
 extension Day {
     /// Override to replace file input
     static var input: String! { nil }
-
-    /// Override to propose tests
-    static func test() throws {}
 }
 
 extension Day {
