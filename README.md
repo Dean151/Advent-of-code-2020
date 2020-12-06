@@ -29,5 +29,6 @@ Some special attention will be addressed regarding performances, I'll try to sol
 | **3**  | 0,004s          | 254        | 1666768320 |
 | **4**  | 0,021s          | 239        | 188        |
 | **5**  | 0,013s          | 989        | 548        |
+| **6**  | 0,010s          | 6630       | 3437       |
 
 \* : Best elapsed time of the complete solution using my MacBook Pro 13in mid 2013 in "Release" mode

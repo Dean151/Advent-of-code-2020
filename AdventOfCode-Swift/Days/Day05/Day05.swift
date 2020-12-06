@@ -3,6 +3,7 @@ import Foundation
 
 enum Day05: Day {
     static func test() throws {
+        precondition(try! seatId(for: "FBFBBFFRLR") == 357)
         precondition(try! seatId(for: "BFFFBBFRRR") == 567)
         precondition(try! seatId(for: "FFFBBBFRRR") == 119)
         precondition(try! seatId(for: "BBFFBBFRLL") == 820)
