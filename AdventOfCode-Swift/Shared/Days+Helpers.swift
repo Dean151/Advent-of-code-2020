@@ -9,7 +9,12 @@
 import Foundation
 
 extension Day {
-    static func integers(for input: String) -> [Int] {
-        input.components(separatedBy: .newlines).compactMap { Int($0) }
+    static func integers(for input: String, separatedBy separator: CharacterSet = .newlines) throws -> [Int] {
+        let components = input.components(separatedBy: separator)
+        let integers = components.compactMap { Int($0) }
+        guard integers.count == components.count else {
+            throw Errors.unparsable
+        }
+        return integers
     }
 }

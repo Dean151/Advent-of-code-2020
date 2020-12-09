@@ -22,15 +22,17 @@ Some special attention will be addressed regarding performances, I'll try to sol
 
 ## Puzzle solutions so far
 
-| Day    | Computing time* | Part 1     | Part 2     |
-|--------|-----------------|------------|------------|
-| **1**  | 0,010s          | 800139     | 59885340   |
-| **2**  | 0,033s          | 580        | 611        |
-| **3**  | 0,004s          | 254        | 1666768320 |
-| **4**  | 0,021s          | 239        | 188        |
-| **5**  | 0,013s          | 989        | 548        |
-| **6**  | 0,010s          | 6630       | 3437       |
-| **7**  | 0,037s          | 289        | 30055      |
-| **8**  | 0,015s          | 1801       | 2060       |
+| Day    | Computing time** | Part 1     | Part 2     |
+|--------|------------------|------------|------------|
+| **1**  | 0,010s           | 800139     | 59885340   |
+| **2**  | 0,033s           | 580        | 611        |
+| **3**  | 0,004s           | 254        | 1666768320 |
+| **4**  | 0,021s           | 239        | 188        |
+| **5**  | 0,013s           | 989        | 548        |
+| **6**  | 0,010s           | 6630       | 3437       |
+| **7**  | 0,037s           | 289        | 30055      |
+| **8**  | 0,015s           | 1801       | 2060       |
+| **9**  | 0.016s\*\*       | 144381670  | 20532569   |
 
 \* : Best elapsed time of the complete solution using my MacBook Pro 13in mid 2013 in "Release" mode
+\*\* : This one is a miracle. 5.5s of computing time in Debug mode, but still, "Release" mode makes miracle happens

@@ -4,7 +4,7 @@ import Foundation
 enum Day01: Day {
     static func test() throws {
         let input = try Input.getFromFile("\(Self.self)", file: "test")
-        let numbers = integers(for: input)
+        let numbers = try integers(for: input)
         let (a, b) = try findTwo(2020, in: integers(for: input))
         let (c, d, e) = try findThree(2020, in: integers(for: input))
         precondition(numbers.count == 6)
@@ -13,7 +13,7 @@ enum Day01: Day {
     }
 
     static func run(input: String) throws {
-        let numbers = integers(for: input)
+        let numbers = try integers(for: input)
 
         // Day 1-1
         let (first, second) = try findTwo(2020, in: numbers)
