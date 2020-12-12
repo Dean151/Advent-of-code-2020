@@ -34,7 +34,7 @@ Some special attention will be addressed regarding performances, I'll try to sol
 | **8**  | 0,015s           | 1801       | 2060       |
 | **9**  | 0.016s\*\*       | 144381670  | 20532569   |
 | **10** |                  |            |            |
-| **11** | 1,452s\*\*\*     | 2361       | 2119       |
+| **11** | 1,452s\*\*\*     | 2361       | 2119       |
 | **12** | 0,003s           | 882        | 28885      |
 
 \* : Best elapsed time of the complete solution using my MacBook Pro 13in mid 2013 in "Release" mode
