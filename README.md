@@ -22,7 +22,7 @@ Some special attention will be addressed regarding performances, I'll try to sol
 
 ## Puzzle solutions so far
 
-| Day    | Computing time** | Part 1     | Part 2     |
+| Day    | Computing time\* | Part 1     | Part 2     |
 |--------|------------------|------------|------------|
 | **1**  | 0,010s           | 800139     | 59885340   |
 | **2**  | 0,033s           | 580        | 611        |
@@ -34,8 +34,9 @@ Some special attention will be addressed regarding performances, I'll try to sol
 | **8**  | 0,015s           | 1801       | 2060       |
 | **9**  | 0.016s\*\*       | 144381670  | 20532569   |
 | **10** |                  |            |            |
-| **11** |                  |            |            |
+| **11** | 1,452s\*\*\*     | 2361       | 2119       |
 | **12** | 0,003s           | 882        | 28885      |
 
 \* : Best elapsed time of the complete solution using my MacBook Pro 13in mid 2013 in "Release" mode
 \*\* : This one is a miracle. 5.5s of computing time in Debug mode, but still, "Release" mode makes miracle happens
+\*\*\* : Another best proof that optimisation of "Release" mode are really great. 5.3s in "Debug" mode ; This one can be improved though.

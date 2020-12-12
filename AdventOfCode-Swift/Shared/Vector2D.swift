@@ -131,6 +131,15 @@ extension Vector2D {
     var neighbours: [Vector2D] {
         return Direction.allCases.map { moved($0) }
     }
+
+    var extendedNeighbours: [Vector2D] {
+        return neighbours + [
+            .init(x: -1, y: -1),
+            .init(x: 1, y: -1),
+            .init(x: -1, y: 1),
+            .init(x: 1, y: 1),
+        ].map({ moved(by: $0) })
+    }
 }
 
 extension Dictionary where Key == Vector2D, Value: CustomStringConvertible {
