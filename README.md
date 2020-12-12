@@ -33,6 +33,9 @@ Some special attention will be addressed regarding performances, I'll try to sol
 | **7**  | 0,037s           | 289        | 30055      |
 | **8**  | 0,015s           | 1801       | 2060       |
 | **9**  | 0.016s\*\*       | 144381670  | 20532569   |
+|
+|
+| **12** |                  | 882        | 28885      |
 
 \* : Best elapsed time of the complete solution using my MacBook Pro 13in mid 2013 in "Release" mode
 \*\* : This one is a miracle. 5.5s of computing time in Debug mode, but still, "Release" mode makes miracle happens

@@ -67,22 +67,65 @@ extension Vector2D {
         mutating func turn(_ turn: Turn) {
             self = self.turned(turn)
         }
-    }
-    
-    func moved(_ direction: Direction) -> Vector2D {
-        switch direction {
-        case .up:
-            return moved(by: Vector2D(x: 0, y: -1))
-        case .left:
-            return moved(by: Vector2D(x: -1, y: 0))
-        case .right:
-            return moved(by: Vector2D(x: 1, y: 0))
-        case .down:
-            return moved(by: Vector2D(x: 0, y: 1))
+
+        func turnedAround() -> Direction {
+            switch self {
+            case .up:
+                return .down
+            case .left:
+                return .right
+            case .down:
+                return .up
+            case .right:
+                return .left
+            }
+        }
+
+        mutating func turnAround() {
+            self = self.turnedAround()
         }
     }
-    mutating func move(_ direction: Direction) {
-        self = self.moved(direction)
+    
+    func moved(_ direction: Direction, distance: Int = 1) -> Vector2D {
+        switch direction {
+        case .up:
+            return moved(by: Vector2D(x: 0, y: -distance))
+        case .left:
+            return moved(by: Vector2D(x: -distance, y: 0))
+        case .right:
+            return moved(by: Vector2D(x: distance, y: 0))
+        case .down:
+            return moved(by: Vector2D(x: 0, y: distance))
+        }
+    }
+    mutating func move(_ direction: Direction, distance: Int = 1) {
+        self = self.moved(direction, distance: distance)
+    }
+
+    func rotated(_ turn: Turn) -> Vector2D {
+        switch turn {
+        case .left:
+            return Vector2D(x: y, y: -x)
+        case .right:
+            return Vector2D(x: -y, y: x)
+        }
+    }
+    mutating func rotate(_ turn: Turn) {
+        self = self.rotated(turn)
+    }
+
+    func rotatedAround() -> Vector2D {
+        return Vector2D(x: -x, y: -y)
+    }
+    mutating func rotateAround() {
+        self = self.rotatedAround()
+    }
+
+    func multiplied(by factor: Int) -> Vector2D {
+        return Vector2D(x: x * factor, y: y * factor)
+    }
+    mutating func multiply(by factor: Int) {
+        self = self.multiplied(by: factor)
     }
 
     var neighbours: [Vector2D] {
